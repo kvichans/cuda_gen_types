@@ -1,4 +1,6 @@
 from    zipfile import ZipFile
+import os
+import re
 
 def log(msg='', *args, **kwargs):
     if args or kwargs:
@@ -49,7 +51,7 @@ def cuda_gen_types(src_dir, trg_file):
 
 if __name__ == '__main__' :
     pass;                       log('Start')
-    src_dir = r'd:\Soft\fs\Cuda\kv\CudaText_addons\lexer'
-    trg_file= r'd:\Soft\fs\Cuda\kv\CudaText_addons\types.py'
+    src_dir = os.getcwd()
+    trg_file= src_dir+os.sep+'lextypes.py'
     cuda_gen_types(src_dir, trg_file)
     pass;                       log('Finish')
