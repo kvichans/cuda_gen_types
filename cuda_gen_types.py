@@ -1,6 +1,6 @@
-from    zipfile import ZipFile
 import os
 import re
+from zipfile import ZipFile
 
 def log(msg='', *args, **kwargs):
     if args or kwargs:
@@ -12,7 +12,7 @@ def cuda_gen_types(src_dir, trg_file):
     
     zip_fns = [fn for fn in os.listdir(src_dir)
                   if  fn.endswith('.zip')]
-    pass;                       log("zip_fns={}",len(zip_fns))
+    pass;                       log("zip file count: {}",len(zip_fns))
     for zip_fn in zip_fns:
         with ZipFile(src_dir+os.sep+zip_fn) as zip_f:
             lcf_fns = [fn for fn in zip_f.namelist() 
@@ -52,6 +52,6 @@ def cuda_gen_types(src_dir, trg_file):
 if __name__ == '__main__' :
     pass;                       log('Start')
     src_dir = os.getcwd()
-    trg_file= src_dir+os.sep+'lextypes.py'
+    trg_file= src_dir+os.sep+'lexertypes.py'
     cuda_gen_types(src_dir, trg_file)
     pass;                       log('Finish')
